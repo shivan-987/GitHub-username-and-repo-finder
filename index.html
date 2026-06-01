@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Find Github Usernames/Projects</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+    
+        <div class="title" id="start-page-1">
+            <h1>Find me a Github Developer/Projects : </h1>
+            <br>
+        </div>
+
+        <div class="toggle-box1">
+            <label for="on" id="switchON" onclick=finderOn()>
+                <input type="radio" name="switch" id="on">
+                Finder ON
+            </label>
+            <label for="off" id="switchOFF">
+                <input type="radio" name="switch" id="off" onclick=finderOff()>
+                Finder OFF
+            </label>
+        </div>
+
+    <div class="search-container" id="start-page-2">
+        <!--choose why method to use to find developer-->
+        <div class="toggle-box">
+            <label for="username_option">
+            <!--on clicking this option: show show the search container for username-->
+            <input type="radio" name="method_type" value="username" id='username_option' onclick="displayUsernameSearchBox()">    
+            By Username
+            </label>
+            
+            <label for='project_option'>
+                <!--on clicking this option: show show the search container for project-->
+            <input type="radio" name="method_type" value="keyword" id='project_option' onclick="displayProjectSearchBox()">    
+            By Projects
+            </label>
+        </div>
+
+
+        <!--for usernames, hidden initially-->
+        <div class="search-box" id="username_search">
+            <input type="text" id="gh-username" placeholder="Search Developer by his/her Username...">
+            <button type="button" onclick="findDeveloper()">By Username</button>
+        </div>
+
+        <!--projects search, initially hidden-->
+        <div class="search-box" id="project_search">
+            <input type="text" id="gh-keyword" placeholder="Search Projects/Repos...">
+            <button type="button" onclick="findProjects()">By Projects</button>
+        </div>
+
+    </div>
+
+        <div id="loader"></div>
+        <div id="error-msg"></div>
+
+        <div class="card" id="devCard">
+        <img src="" alt="Avatar" class="avatar" id="devAvatar">
+        <h2 id="devName"></h2>
+        <p class="bio" id="devBio"></p>
+        <p class="bio" id="devUrl"></p>
+        <p class="bio" id="blog"></p>
+        <div class="stats">
+        <div class="stat-item"><span class="stat-value" id="devRepos"></span><span class="stat-label">Public Repos</span></div>
+        <div class="stat-item"><span class="stat-value" id="devFollowers"></span><span class="stat-label">Followers</span></div>        
+        </div>
+        </div>
+
+        <div id="repo-board">
+            <!--display all repos found-->
+        </div>
+
+        <script src="finder.js"></script>
+
+
+    </body>
+
+</html>
