@@ -1,0 +1,312 @@
+    
+    /*importing font-family from google apis*/
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');        
+    
+    /* Reset and Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    /* Changed from center to flex-start and added padding so it scrolls nicely when we have 20 repos */
+    body 
+    { 
+        background-color: #0d1117; 
+        color: #c9d1d9; 
+        display: flex; 
+        justify-content: flex-start; 
+        align-items: center; 
+        min-height: 100vh; 
+        flex-direction: column; 
+        padding: 40px 20px; 
+        font-family: 'Roboto', sans-serif; 
+    }
+
+    /*search boxes, initially hidden until correct radio button chosen, search-container hidden first*/
+    .search-container 
+    { 
+        display: none; 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 15px; 
+        margin-bottom: 30px; 
+        width: 100%; 
+        max-width: 500px; 
+        margin-top:30px;
+    }
+    
+    .toggle-box 
+    { 
+        display: flex; 
+        gap: 20px; 
+        background: #161b22; 
+        padding: 10px 20px; 
+        border-radius: 8px; 
+        border: 1px solid #30363d; 
+        margin-bottom: 20px;
+    }
+
+    .toggle-box label 
+    { 
+        cursor: pointer; 
+        font-weight: bold; 
+        color: #8b949e; 
+        display: flex; 
+        align-items: center; 
+        gap: 8px; 
+        transition: color 0.2s; 
+    }
+    
+    .toggle-box label:hover 
+    { 
+        color: #c9d1d9; 
+    }
+
+    .toggle-box input[type="radio"] 
+    { 
+        cursor: pointer; 
+        accent-color: #58a6ff; 
+    }
+
+    .toggle-box1 
+    { 
+        display: flex; 
+        gap: 20px; 
+        background: #161b22; 
+        padding: 10px 20px; 
+        border-radius: 8px; 
+        border: 1px solid #30363d; 
+        margin-bottom: 20px;
+    }
+
+    .toggle-box1 label 
+    { 
+        cursor: pointer; 
+        font-weight: bold; 
+        color: #8b949e; 
+        display: flex; 
+        align-items: center; 
+        gap: 8px; 
+        transition: color 0.2s; 
+    }
+
+    .toggle-box1 label:hover 
+    { 
+        color: #c9d1d9; 
+    }
+    .toggle-box1 input[type="radio"] 
+    { 
+        cursor: pointer; 
+        accent-color: #58a6ff; 
+    }
+
+    /*initially hidden until correct radio button chosen*/
+    .search-box 
+    { 
+        display: flex; 
+        gap: 10px; 
+        width: 100%; 
+        display: none; 
+    }
+    input[type="text"] 
+    { 
+        flex: 1; 
+        background: #010409; 
+        color: #c9d1d9; 
+        border: 1px solid #30363d; 
+        padding: 12px 15px; 
+        border-radius: 6px; 
+        outline: none; 
+        font-size: 16px; 
+    }
+    input[type="text"]:focus 
+    { 
+        border-color: #58a6ff; 
+    }
+    button 
+    { 
+        background-color: #238636; 
+        color: white; 
+        border: none; 
+        padding: 12px 20px; 
+        border-radius: 6px; 
+        font-weight: bold; 
+        cursor: pointer; 
+        transition: 0.2s; 
+        font-size: 16px; 
+    }
+    button:hover {
+        background-color: #2ea043; 
+    }
+
+    /* --- Card for username search--- */
+    .card 
+    { 
+        background: #161b22; 
+        border: 1px solid #30363d; 
+        width: 350px; 
+        border-radius: 10px; 
+        padding: 25px; 
+        text-align: center; 
+        display: none; 
+        margin-bottom: 20px; 
+    }
+    .avatar 
+    { 
+        width: 120px; 
+        height: 120px; 
+        border-radius: 50%; 
+        border: 2px solid #30363d; 
+        margin-bottom: 15px; 
+    }
+    .card h2 
+    { 
+        color: #58a6ff; 
+        margin-bottom: 5px; 
+    }
+    .bio 
+    { 
+        font-size: 14px; 
+        color: #8b949e; 
+        margin-bottom: 20px; 
+        font-style: italic; 
+        word-break: break-all;
+    }
+    .stats 
+    { 
+        display: flex; 
+        justify-content: space-around; 
+        background: #010409; 
+        padding: 15px; 
+        border-radius: 6px; 
+        border: 1px solid #30363d; 
+    }
+    .stat-item 
+    { 
+        display: flex; 
+        flex-direction: column; 
+    }
+    .stat-value 
+    { 
+        font-weight: bold; 
+        font-size: 18px; 
+        color: #c9d1d9; 
+    }
+    .stat-label 
+    { 
+        font-size: 12px; 
+        color: #8b949e; 
+    }
+
+    a{
+        display: inline-block;
+        color:#2ea043;
+    }
+    a:hover{
+        transform: scale(1.5);
+        color:orange;
+    }
+
+    /* --- styles for displaying project repos filtered by keyword typed by user */
+    #repo-board { 
+    display: none; /*hide until data returned by API */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /*create as many column each of width:>280px and if row not filled automatically fill the row*/ 
+    gap: 20px;  /*space btwn each repo card*/
+    width: 100%; 
+    max-width: 1000px; /*avoid extra stratching of card if too much space available*/
+    margin-top: 10px; 
+    }
+    .repo-card {
+    background: #161b22; 
+    border: 1px solid #30363d; 
+    padding: 20px; 
+    border-radius: 8px; 
+    text-align: left; 
+    transition: transform 0.2s; /*take 0.2s to apply changes on hovering*/
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; /*title/desc to top and stats to bottom*/
+    }
+    .repo-card:hover 
+    { 
+        transform: translateY(-3px); /*move up by 3 px to look like floating*/
+        border-color: #8b949e; /*change border color*/
+    }
+    .repo-card h3 
+    { 
+        font-weight: 700;
+        font-family: 'Fira Code', monospace;
+        color: #58a6ff; 
+        margin-bottom: 10px; 
+        font-size: 18px; 
+        word-break: break-all; /*to avoid long project desc to spill out of repo card*/
+        letter-spacing: -0.5px;
+    }
+    .repo-desc 
+    { 
+        font-weight: 400;
+        line-height: 1.5;
+        color: #8b949e; 
+        font-size: 14px; 
+        margin-bottom: 15px; 
+        display: -webkit-box; 
+        -webkit-line-clamp: 4; /*if project desc too long then take only first 3 lines, remaining "..."*/
+        line-clamp: 4; 
+        -webkit-box-orient: 
+        vertical; 
+        overflow: hidden; 
+    }
+    .repo-meta 
+    { 
+        font-family: 'Fira Code', monospace;
+        display: flex; 
+        gap: 15px; /*space btwn meta data like stars, forks etc*/
+        font-size: 12px; 
+        color: #8b949e; 
+        font-weight: bold; 
+        letter-spacing: -0.5px;
+    }
+    .repo-meta span 
+    { 
+        display: flex; 
+        align-items: center; 
+        gap: 4px; 
+    }
+
+    /* for language/framework/tech stack used*/
+    .repo-topics 
+    {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+
+    .topic-tag 
+    {
+        background-color: #1f6feb; /* A nice GitHub blue */
+        color: #ffffff;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 20px;
+        text-transform: lowercase;
+    }
+
+    /* --- loading and error msgs --- */
+    #loader 
+    { 
+        color: #58a6ff; 
+        margin-bottom: 20px; 
+        display: none; 
+        font-weight: bold; 
+    }
+    #error-msg 
+    { 
+        color: #f85149; 
+        margin-bottom: 20px; 
+        display: none; 
+        font-weight: bold; 
+    }
+    /*don't show title initially    */
+    .title{
+        display: none;
+    }
