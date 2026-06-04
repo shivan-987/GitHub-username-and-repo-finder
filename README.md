@@ -149,6 +149,6 @@ Contributions, issues, and feature requests are highly welcome! If you have sugg
 
 ## 📬 Contact
 
-**Your Name** - [@sankalp-yanamandra](https://github.com/sankalp-yanamandra)
+**My Name** - [@sankalp-yanamandra](https://github.com/sankalp-yanamandra)
 
 **Project Link:** [https://github.com/Sankalp-Yanamandra/GitHub-username-and-repo-finder.git](https://github.com/Sankalp-Yanamandra/GitHub-username-and-repo-finder.git)
