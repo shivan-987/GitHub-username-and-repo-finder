@@ -10,7 +10,7 @@ One can easily switch between searching for someone's profile by their username 
 
 <!-- deployment link -->
 <p align="center">
-    <a href="https://sankalp-yanamandra.github.io/GitHub-username-and-repo-finder/">
+    <a href="https://git-hub-username-and-repo-finder.vercel.app/">
         <img src="https://img.shields.io/badge/try-application-brightgreen?style=for-the-badge" alt="try App">
     </a>
 </p>
